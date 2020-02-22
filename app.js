@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser')
 require('dotenv').config();
+const UserRouter = require('./routers/users/Users');
 
 const app = express();
 
@@ -29,6 +30,8 @@ app.use(bodyParser.json());
 
 
 
+// user the Routers
+app.use('/api', UserRouter)
 
 const PORT = process.env.PORT || 500;
 app.listen(PORT, () => {
